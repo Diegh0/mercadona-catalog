@@ -1,11 +1,19 @@
 import { Injectable, computed, effect, inject, signal } from '@angular/core';
 import { CatalogApiService } from '../../../core/services/catalog-api.service';
 import { CatalogCategory, CatalogProduct } from '../../../core/models/catalog.model';
+import { SortConfig } from '../../../core/models/sort-config.model';
 
 @Injectable({ providedIn: 'root' })
 export class CatalogStore {
   private readonly api = inject(CatalogApiService);
 
+  readonly sortConfig = signal<SortConfig>({
+  filterName: 'Ordenar',
+  typeFilter: 'name',
+  initialStatus: 'asc',
+});
+
+  readonly sortStatus = signal<'asc' | 'desc'>(this.sortConfig().initialStatus);
   // Data
   readonly categories = signal<CatalogCategory[]>([]);
   readonly loading = signal<boolean>(true);
@@ -39,8 +47,30 @@ readonly rightProducts = computed<CatalogProduct[]>(() => {
 
   return list.filter((p) => p.name.toLowerCase().includes(term));
 });
+//LISTA FINAL DE PRODUCTOS
+readonly rightProductsView = computed(() => {
+  const list = this.rightProducts(); // filtrado (min 3)
+  const { typeFilter } = this.sortConfig();
+  const status = this.sortStatus();
+  const factor = status === 'asc' ? 1 : -1;
 
+  return [...list].sort((a, b) => {
+    if (typeFilter === 'name') {
+      return factor * a.name.localeCompare(b.name);
+    }
 
+    if (typeFilter === 'price') {
+      const av = a.priceAmount ?? Number.POSITIVE_INFINITY;
+      const bv = b.priceAmount ?? Number.POSITIVE_INFINITY;
+      return factor * (av - bv);
+    }
+
+    // weight
+    const aw = a.totalWeight ?? Number.POSITIVE_INFINITY;
+    const bw = b.totalWeight ?? Number.POSITIVE_INFINITY;
+    return factor * (aw - bw);
+  });
+});
 
   readonly showSearch = computed(() => this.selectedCategoryId() !== null);
   // Ruta de productos seleccionados (cadena)
@@ -60,6 +90,7 @@ readonly rightProducts = computed<CatalogProduct[]>(() => {
         this.loading.set(false);
       },
     });
+   
   }
 
   selectCategory(id: number) {
@@ -78,9 +109,18 @@ selectProduct(productId: number) {
   this.searchTerm.set('');
   this.productPath.update((prev) => [...prev, found]);
 }
+
 back() {
   this.productPath.update((prev) => prev.slice(0, -1));
   this.searchTerm.set('');
+}
+//ORDENACIÓN
+setSortConfig(config: SortConfig) {
+  this.sortConfig.set(config);
+  this.sortStatus.set(config.initialStatus);
+}
+toggleSortStatus() {
+  this.sortStatus.update((s) => (s === 'asc' ? 'desc' : 'asc'));
 }
 
 

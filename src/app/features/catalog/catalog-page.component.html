@@ -34,9 +34,13 @@
         [visible]="store.hasProductSelected()"
         (back)="onBack()"
       />
+      <button type="button" class="sort-btn" (click)="onToggleSort()">
+      {{ store.sortConfig().filterName }} {{ sortArrow() }}
+      </button>
+
     </div>
 
-    <!-- ✅ BUSCADOR: solo aparece cuando hay categoría seleccionada -->
+    <!-- BUSCADOR: -->
     @if (store.showSearch()) {
       <div class="search">
         <input
@@ -54,9 +58,10 @@
     }
 
     <app-product-list
-      [products]="store.rightProducts()"
-      (selectProduct)="onSelectProduct($event)"
+    [products]="store.rightProductsView()"
+    (selectProduct)="onSelectProduct($event)"
     />
+
   }
 </div>
 </section>
