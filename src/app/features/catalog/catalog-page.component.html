@@ -1,5 +1,11 @@
 <section class="catalog" aria-label="Catálogo">
-  <div class="col left" aria-label="Columna izquierda">
+  <div
+  #leftCol
+  class="col left"
+  aria-label="Columna izquierda"
+  (scroll)="store.setLeftScrollTop(($any($event.target)).scrollTop)"
+>
+
     <h2 class="title">Categorías</h2>
 
     @if (store.loading()) {
@@ -23,7 +29,13 @@
 
   </div>
 
-<div class="col right" aria-label="Columna derecha">
+<div
+  #rightCol
+  class="col right"
+  aria-label="Columna derecha"
+  (scroll)="store.setRightScrollTop(($any($event.target)).scrollTop)"
+>
+
   @if (store.selectedCategoryId() === null) {
     <div class="empty-state">Seleccione una categoría</div>
   } @else {

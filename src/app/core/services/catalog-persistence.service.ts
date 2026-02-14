@@ -7,6 +7,9 @@ export interface CatalogPersistedState {
   searchTerm: string;
   sortConfig: SortConfig;
   sortStatus: 'asc' | 'desc';
+
+  leftScrollTop: number;
+  rightScrollTop: number;
 }
 
 const KEY = 'mercadona_catalog_state_v1';

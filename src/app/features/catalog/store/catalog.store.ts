@@ -16,6 +16,9 @@ export class CatalogStore {
   private readonly persistence = inject(CatalogPersistenceService);
   private readonly hydrated = signal(false);
 
+  readonly isHydrated = computed(() => this.hydrated());
+  readonly leftScrollTop = signal<number>(0);
+  readonly rightScrollTop = signal<number>(0);
 
   readonly sortStatus = signal<'asc' | 'desc'>(this.sortConfig().initialStatus);
   // Data
@@ -99,10 +102,10 @@ readonly rightProductsView = computed(() => {
           this.productPath.set(rebuilt);
 
           this.searchTerm.set(saved.searchTerm ?? '');
+          this.leftScrollTop.set(saved.leftScrollTop ?? 0);
+          this.rightScrollTop.set(saved.rightScrollTop ?? 0);
         }
-
         this.hydrated.set(true);
-
       },
       
       error: () => {
@@ -110,7 +113,7 @@ readonly rightProductsView = computed(() => {
         this.loading.set(false);
       },
     });
-    
+
    effect(() => {
   if (!this.hydrated()) return;
 
@@ -120,11 +123,19 @@ readonly rightProductsView = computed(() => {
     searchTerm: this.searchTerm(),
     sortConfig: this.sortConfig(),
     sortStatus: this.sortStatus(),
+    leftScrollTop: this.leftScrollTop(),
+  rightScrollTop: this.rightScrollTop(),
   });
 });
-
-
 }
+setLeftScrollTop(value: number) {
+  this.leftScrollTop.set(value);
+}
+
+setRightScrollTop(value: number) {
+  this.rightScrollTop.set(value);
+}
+
 private rebuildProductPath(ids: number[]) {
   const cat = this.selectedCategory();
   if (!cat || ids.length === 0) return [];
