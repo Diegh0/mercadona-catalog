@@ -56,3 +56,10 @@
   color: var(--c-text);
   background: var(--c-bg);
 }
+.right-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}

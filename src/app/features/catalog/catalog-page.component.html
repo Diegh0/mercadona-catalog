@@ -23,18 +23,25 @@
 
   </div>
 
-  <div class="col right" aria-label="Columna derecha">
+<div class="col right" aria-label="Columna derecha">
   @if (store.selectedCategoryId() === null) {
     <div class="empty-state">Seleccione una categoría</div>
   } @else {
-    <h2 class="title">Productos</h2>
+    <div class="right-header">
+      <h2 class="title">Productos</h2>
+
+      <app-back-button
+        [visible]="store.hasProductSelected()"
+        (back)="onBack()"
+      />
+    </div>
 
     <app-product-list
       [products]="store.rightProducts()"
       (selectProduct)="onSelectProduct($event)"
     />
-
   }
 </div>
+
 
 </section>

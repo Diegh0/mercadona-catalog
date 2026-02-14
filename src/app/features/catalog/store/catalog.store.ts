@@ -65,6 +65,9 @@ selectProduct(productId: number) {
 
   this.productPath.update((prev) => [...prev, found]);
 }
+back() {
+  this.productPath.update((prev) => prev.slice(0, -1));
+}
 
 
 }
