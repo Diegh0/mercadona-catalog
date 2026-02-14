@@ -21,11 +21,21 @@ export class CatalogStore {
   });
 
   readonly rightProducts = computed<CatalogProduct[]>(() => {
-    const cat = this.selectedCategory();
-    return cat ? cat.products : [];
-  });
+  const cat = this.selectedCategory();
+  if (!cat) return [];
+
+  const path = this.productPath();
+  if (path.length === 0) return cat.products;
+
+  const last = path[path.length - 1];
+  return last.children;
+});
+
 
   readonly showSearch = computed(() => this.selectedCategoryId() !== null);
+  // Ruta de productos seleccionados (cadena)
+  readonly productPath = signal<CatalogProduct[]>([]);
+  readonly hasProductSelected = computed(() => this.productPath().length > 0);
 
   constructor() {
     // Load once
@@ -42,6 +52,19 @@ export class CatalogStore {
   }
 
   selectCategory(id: number) {
-    this.selectedCategoryId.set(id);
-  }
+  this.selectedCategoryId.set(id);
+  this.productPath.set([]);
+}
+selectProduct(productId: number) {
+  const current = this.rightProducts();
+  const found = current.find((p) => p.id === productId);
+  if (!found) return;
+
+  // Si no tiene children, es final: no hacemos nada
+  if (found.children.length === 0) return;
+
+  this.productPath.update((prev) => [...prev, found]);
+}
+
+
 }

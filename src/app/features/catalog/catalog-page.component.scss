@@ -36,3 +36,23 @@
   color: var(--c-muted);
   font-size: var(--fs-sm);
 }
+.subtitle {
+  margin: var(--space-4) 0 var(--space-3) 0;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-muted);
+}
+
+.path {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.path-item {
+  padding: var(--space-3);
+  border: 1px dashed var(--c-border);
+  border-radius: var(--r-md);
+  font-size: var(--fs-xs);
+  color: var(--c-text);
+  background: var(--c-bg);
+}

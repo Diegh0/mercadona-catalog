@@ -14,7 +14,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 export class CatalogPageComponent {
   readonly store = inject(CatalogStore);
   onSelectProduct(id: number) {
-  // lo implementamos en el siguiente paso
+  this.store.selectProduct(id);
 }
+
 
 }

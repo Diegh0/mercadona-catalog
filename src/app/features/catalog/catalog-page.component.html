@@ -11,6 +11,16 @@
         (selectCategory)="store.selectCategory($event)"
       />
     }
+    @if (store.productPath().length > 0) {
+      <h3 class="subtitle">Selección</h3>
+
+      <div class="path">
+        @for (p of store.productPath(); track p.id) {
+          <div class="path-item">{{ p.name }}</div>
+        }
+      </div>
+}
+
   </div>
 
   <div class="col right" aria-label="Columna derecha">
@@ -23,6 +33,7 @@
       [products]="store.rightProducts()"
       (selectProduct)="onSelectProduct($event)"
     />
+
   }
 </div>
 
