@@ -5,6 +5,10 @@
 
   height: 750px;
   max-height: 750px;
+
+  background: var(--c-brand-soft);
+  padding: var(--space-4);
+  border-radius: var(--r-md);
 }
 
 .col {
@@ -12,10 +16,14 @@
   border-radius: var(--r-md);
   padding: var(--space-3);
   background: var(--c-bg);
+  box-shadow: var(--shadow-sm);
 
   overflow-y: auto;
   min-height: 0;
+  overflow-x: hidden;   // 👈 esto elimina el scroll horizontal
+  min-width: 0;    
 }
+
 
 .title {
   margin: 0 0 var(--space-3) 0;
@@ -63,6 +71,13 @@
   gap: var(--space-3);
   margin-bottom: var(--space-3);
 }
+
+.right-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 .search {
   display: grid;
   gap: 6px;
@@ -86,3 +101,82 @@
   font-size: var(--fs-xs);
   color: var(--c-muted);
 }
+
+.mobile-tabs {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .catalog {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+    padding: var(--space-3);
+  }
+
+  .mobile-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: var(--space-3);
+  }
+
+  .tab {
+    padding: 10px 12px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--c-border);
+    background: var(--c-bg);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+  }
+
+  .tab.active {
+    border-color: var(--c-brand);
+    background: var(--c-brand-soft);
+    color: var(--c-brand);
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .col {
+    max-height: 70vh;
+  }
+
+  .right-header {
+    flex-wrap: wrap;
+  }
+
+  .right-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .search-input {
+    font-size: 16px; // evita zoom en iOS
+  }
+}
+.section-title {
+  font-family: 'Inter', sans-serif;
+  margin: 0 0 var(--space-3) 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: var(--c-text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--c-border), transparent);
+}
+
+
+

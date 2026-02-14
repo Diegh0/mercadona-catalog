@@ -4,6 +4,9 @@
   --c-border: #e6e6e6;
   --c-text: #111827;
   --c-muted: #6b7280;
+  --c-brand: #0a8f3e;      /* verde mercadona-ish */
+  --c-brand-soft: #e9f7ef; /* fondo suave */
+  --shadow-sm: 0 1px 10px rgba(0,0,0,0.06);
 
   /* Espaciado y forma */
   --r-md: 12px;
@@ -15,3 +18,31 @@
   --fs-xs: 13px;
   --fw-semibold: 600;
 }
+/* Botón reutilizable */
+.btn {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--c-border);
+  background: var(--c-bg);
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text);
+  transition: transform 0.06s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.btn--brand {
+  border-color: rgba(10, 143, 62, 0.35);
+  background: var(--c-brand-soft);
+  color: var(--c-brand);
+}
+
+.btn--brand:hover {
+  border-color: rgba(10, 143, 62, 0.6);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--brand:active {
+  transform: translateY(1px);
+}
+

@@ -1,12 +1,22 @@
 <section class="catalog" aria-label="Catálogo">
+  <div class="mobile-tabs">
+  <button type="button" class="tab" [class.active]="showLeft()" (click)="mobileTab.set('left')">
+    Categorías
+  </button>
+  <button type="button" class="tab" [class.active]="showRight()" (click)="mobileTab.set('right')">
+    Productos
+  </button>
+</div>
+
   <div
   #leftCol
   class="col left"
+  [class.hide-mobile]="showRight()"
   aria-label="Columna izquierda"
   (scroll)="store.setLeftScrollTop(($any($event.target)).scrollTop)"
 >
 
-    <h2 class="title">Categorías</h2>
+    <h2 class="section-title">Categorías</h2>
 
     @if (store.loading()) {
       <div class="placeholder">Cargando categorías...</div>
@@ -14,7 +24,7 @@
       <app-category-list
         [categories]="store.categories()"
         [selectedCategoryId]="store.selectedCategoryId()"
-        (selectCategory)="store.selectCategory($event)"
+        (selectCategory)="onSelectCategory($event)"
       />
     }
     @if (store.productPath().length > 0) {
@@ -40,17 +50,21 @@
     <div class="empty-state">Seleccione una categoría</div>
   } @else {
     <div class="right-header">
-      <h2 class="title">Productos</h2>
+  <h2 class="section-title">Productos</h2>
 
-      <app-back-button
-        [visible]="store.hasProductSelected()"
-        (back)="onBack()"
-      />
-      <button type="button" class="sort-btn" (click)="onToggleSort()">
-      {{ store.sortConfig().filterName }} {{ sortArrow() }}
-      </button>
+  <div class="right-actions">
+    <button type="button" class="btn btn--brand" (click)="onToggleSort()">
+  {{ store.sortConfig().filterName }} {{ sortArrow() }}
+</button>
 
-    </div>
+
+    <app-back-button
+      [visible]="store.hasProductSelected()"
+      (back)="onBack()"
+    />
+  </div>
+</div>
+
 
     <!-- BUSCADOR: -->
     @if (store.showSearch()) {

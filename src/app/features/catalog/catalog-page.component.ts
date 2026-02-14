@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CatalogStore } from './store/catalog.store';
 import { ProductListComponent } from './components/product-list/product-list.component';
@@ -20,9 +20,24 @@ export class CatalogPageComponent {
   @ViewChild('leftCol') leftCol?: ElementRef<HTMLElement>;
   @ViewChild('rightCol') rightCol?: ElementRef<HTMLElement>;
 
+  readonly mobileTab = signal<'left' | 'right'>('left');
+
+showLeft(): boolean {
+  return this.mobileTab() === 'left';
+}
+
+showRight(): boolean {
+  return this.mobileTab() === 'right';
+}
+
   onSelectProduct(id: number) {
   this.store.selectProduct(id);
 }
+onSelectCategory(id: number) {
+  this.store.selectCategory(id);
+  this.mobileTab.set('right');
+}
+
   onBack() {
       this.store.back();
     }
