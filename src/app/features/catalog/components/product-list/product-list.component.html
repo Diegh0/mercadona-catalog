@@ -1,0 +1,29 @@
+<div class="list">
+  @for (p of products; track p.id) {
+    @if (isClickable(p)) {
+      <button type="button" class="card clickable" (click)="selectProduct.emit(p.id)">
+        <span class="radio" aria-hidden="true"></span>
+
+        <img class="photo" [src]="p.photo ?? ''" [alt]="p.name" />
+
+        <div class="info">
+          <div class="name">{{ p.name }}</div>
+          <div class="meta">{{ p.formatDescription ?? '' }}</div>
+        </div>
+
+        <div class="price">{{ priceLabel(p) }}</div>
+      </button>
+    } @else {
+      <div class="card final" aria-label="Producto final">
+        <img class="photo" [src]="p.photo ?? ''" [alt]="p.name" />
+
+        <div class="info">
+          <div class="name">{{ p.name }}</div>
+          <div class="meta">{{ p.formatDescription ?? '' }}</div>
+        </div>
+
+        <div class="price">{{ priceLabel(p) }}</div>
+      </div>
+    }
+  }
+</div>

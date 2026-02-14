@@ -14,6 +14,16 @@
   </div>
 
   <div class="col right" aria-label="Columna derecha">
+  @if (store.selectedCategoryId() === null) {
     <div class="empty-state">Seleccione una categoría</div>
-  </div>
+  } @else {
+    <h2 class="title">Productos</h2>
+
+    <app-product-list
+      [products]="store.rightProducts()"
+      (selectProduct)="onSelectProduct($event)"
+    />
+  }
+</div>
+
 </section>
