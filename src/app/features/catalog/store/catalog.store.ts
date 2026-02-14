@@ -20,7 +20,7 @@ export class CatalogStore {
     return this.categories().find((c) => c.id === id) ?? null;
   });
 
-  readonly rightProducts = computed<CatalogProduct[]>(() => {
+  readonly rightProductsBase = computed<CatalogProduct[]>(() => {
   const cat = this.selectedCategory();
   if (!cat) return [];
 
@@ -31,11 +31,22 @@ export class CatalogStore {
   return last.children;
 });
 
+readonly rightProducts = computed<CatalogProduct[]>(() => {
+  const list = this.rightProductsBase();
+  const term = this.searchTerm().trim().toLowerCase();
+
+  if (term.length < 3) return list;
+
+  return list.filter((p) => p.name.toLowerCase().includes(term));
+});
+
+
 
   readonly showSearch = computed(() => this.selectedCategoryId() !== null);
   // Ruta de productos seleccionados (cadena)
   readonly productPath = signal<CatalogProduct[]>([]);
   readonly hasProductSelected = computed(() => this.productPath().length > 0);
+  readonly searchTerm = signal<string>('');
 
   constructor() {
     // Load once
@@ -54,19 +65,22 @@ export class CatalogStore {
   selectCategory(id: number) {
   this.selectedCategoryId.set(id);
   this.productPath.set([]);
+  this.searchTerm.set('');
+
 }
 selectProduct(productId: number) {
-  const current = this.rightProducts();
+  const current = this.rightProductsBase();
   const found = current.find((p) => p.id === productId);
   if (!found) return;
 
   // Si no tiene children, es final: no hacemos nada
   if (found.children.length === 0) return;
-
+  this.searchTerm.set('');
   this.productPath.update((prev) => [...prev, found]);
 }
 back() {
   this.productPath.update((prev) => prev.slice(0, -1));
+  this.searchTerm.set('');
 }
 
 

@@ -36,12 +36,27 @@
       />
     </div>
 
+    <!-- ✅ BUSCADOR: solo aparece cuando hay categoría seleccionada -->
+    @if (store.showSearch()) {
+      <div class="search">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Buscar producto..."
+          [value]="store.searchTerm()"
+          (input)="store.searchTerm.set(($any($event.target)).value)"
+        />
+
+        @if (store.searchTerm().trim().length > 0 && store.searchTerm().trim().length < 3) {
+          <div class="search-hint">Escribe al menos 3 caracteres</div>
+        }
+      </div>
+    }
+
     <app-product-list
       [products]="store.rightProducts()"
       (selectProduct)="onSelectProduct($event)"
     />
   }
 </div>
-
-
 </section>
