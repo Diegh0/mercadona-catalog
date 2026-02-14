@@ -1,0 +1,398 @@
+[
+  {
+    "id": 303,
+    "name": "Batido sabor chocolate Hacendado",
+    "category_id": [3000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/eae2a160d018b1c6b49b65aee8a11c79.jpg",
+    "price": { "amount": 1.25, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Botella 1L",
+      "totalWeight": 1000
+    }
+  },
+  {
+    "id": 805,
+    "name": "Leche semidesnatada Hacendado Pack",
+    "category_id": [3000],
+    "parent": 900,
+    "photo": "https://prod-mercadona.imgix.net/images/b9613b9354f8b0705f998b2201ffe443.jpg",
+    "price": { "amount": 5.28, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "6 bricks x 1L",
+      "totalWeight": 6000
+    }
+  },
+  {
+    "id": 12,
+    "name": "Pechuga de pavo bajo en sal",
+    "category_id": [1000],
+    "parent": 11,
+    "photo": "https://prod-mercadona.imgix.net/images/49d21ca3fcddbcc679eb677e61337d1b.jpg",
+    "price": { "amount": 2.4, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 225g",
+      "totalWeight": 225
+    }
+  },
+  {
+    "id": 1000,
+    "name": "Charcutería",
+    "category_id": null,
+    "parent": null,
+    "photo": null,
+    "price": { "amount": null, "currency": null, "unit": null },
+    "format": {
+      "description": null,
+      "totalWeight": null
+    }
+  },
+  {
+    "id": 3000,
+    "name": "Leches y bebidas vegetales",
+    "category_id": null,
+    "parent": null,
+    "photo": null,
+    "price": { "amount": null, "currency": null, "unit": null },
+    "format": {
+      "description": null,
+      "totalWeight": null
+    }
+  },
+  {
+    "id": 2,
+    "name": "Jamón cocido jugoso",
+    "category_id": [1000],
+    "parent": 1,
+    "photo": "https://prod-mercadona.imgix.net/images/3ddc470e5ae64f414cc013facf9adc15.jpg",
+    "price": { "amount": 1.8, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 225g",
+      "totalWeight": 225
+    }
+  },
+  {
+    "id": 3,
+    "name": "Jamón cocido extra",
+    "category_id": [1000],
+    "parent": 2,
+    "photo": "https://prod-mercadona.imgix.net/images/d070e4c58948dba0b36098e312bb401b.jpg",
+    "price": { "amount": 2.0, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 200g",
+      "totalWeight": 200
+    }
+  },
+  {
+    "id": 305,
+    "name": "Bebida de avena Alitey",
+    "category_id": [3000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/e252b6be7d9649959660907f85a91be8.jpg",
+    "price": { "amount": 0.95, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Brick 1L",
+      "totalWeight": 1000
+    }
+  },
+  {
+    "id": 4,
+    "name": "Jamón cocido braseado",
+    "category_id": [1000],
+    "parent": 3,
+    "photo": "https://prod-mercadona.imgix.net/images/ad28305fe300da29a67a967e556427ca.jpg",
+    "price": { "amount": 2.25, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 200g",
+      "totalWeight": 200
+    }
+  },
+  {
+    "id": 100,
+    "name": "Atún claro al natural",
+    "category_id": [2000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/69aa188c64eb23f4855d6739832b09c1.jpg",
+    "price": { "amount": 4.2, "currency": "EUR", "unit": "pack" },
+    "format": {
+      "description": "6 latas x 60g",
+      "totalWeight": 360
+    }
+  },
+  {
+    "id": 10,
+    "name": "Jamón de pavo",
+    "category_id": [1000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/b7691fb2718bc66ad695bb0454823efe.jpg",
+    "price": { "amount": 1.85, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 225g",
+      "totalWeight": 225
+    }
+  },
+  {
+    "id": 11,
+    "name": "Pechuga de pavo finas lonchas",
+    "category_id": [1000],
+    "parent": 10,
+    "photo": "https://prod-mercadona.imgix.net/images/8987d5ff5420c83d5be5a3dc6e3ebcbb.jpg",
+    "price": { "amount": 2.2, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 200g",
+      "totalWeight": 200
+    }
+  },
+  {
+    "id": 13,
+    "name": "Pechuga 92% pavo",
+    "category_id": [1000],
+    "parent": 12,
+    "photo": "https://prod-mercadona.imgix.net/images/afb2fc2be474c020ff0876aa260a0d8f.jpg",
+    "price": { "amount": 2.75, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 200g",
+      "totalWeight": 200
+    }
+  },
+  {
+    "id": 20,
+    "name": "Tiras de pechuga pollo al natural",
+    "category_id": [1000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/aece46064c7f86ca0d02cda808d4ba74.jpg",
+    "price": { "amount": 2.25, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 140g",
+      "totalWeight": 140
+    }
+  },
+  {
+    "id": 21,
+    "name": "Tiras de pechuga pollo al horno",
+    "category_id": [1000],
+    "parent": 20,
+    "photo": "https://prod-mercadona.imgix.net/images/a771c6adb7a421fa3c83983defee636c.jpg",
+    "price": { "amount": 2.25, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 140g",
+      "totalWeight": 140
+    }
+  },
+  {
+    "id": 444,
+    "name": "Batido sabor vainilla Hacendado",
+    "category_id": [3000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/fc6008c7edf9fe7a4600ecb22491812c.jpg",
+    "price": { "amount": 1.2, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Botella 1L",
+      "totalWeight": 1000
+    }
+  },
+  {
+    "id": 22,
+    "name": "Pechuga de pollo braseada",
+    "category_id": [1000],
+    "parent": 21,
+    "photo": "https://prod-mercadona.imgix.net/images/b7fa10ba93f2ac018c73776e7ddff803.jpg",
+    "price": { "amount": 2.2, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 200g",
+      "totalWeight": 200
+    }
+  },
+  {
+    "id": 23,
+    "name": "Pechuga de pollo 92%",
+    "category_id": [1000],
+    "parent": 22,
+    "photo": "https://prod-mercadona.imgix.net/images/36a82ee503ea9e44bfca45ff3c523230.jpg",
+    "price": { "amount": 2.75, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 200g",
+      "totalWeight": 200
+    }
+  },
+  {
+    "id": 350,
+    "name": "Leche desnatada Hacendado Pack",
+    "category_id": [3000],
+    "parent": 300,
+    "photo": "https://prod-mercadona.imgix.net/images/40b9fc5096d638d3e3fe2c5d4f8eb1d8.jpg",
+    "price": { "amount": 5.04, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "6 Bricks 1L",
+      "totalWeight": 6000
+    }
+  },
+  {
+    "id": 2000,
+    "name": "Conservas",
+    "category_id": null,
+    "parent": null,
+    "photo": null,
+    "price": { "amount": null, "currency": null, "unit": null },
+    "format": {
+      "description": null,
+      "totalWeight": null
+    }
+  },
+  {
+    "id": 101,
+    "name": "Atún claro en aceite de girasol",
+    "category_id": [2000],
+    "parent": 100,
+    "photo": "https://prod-mercadona.imgix.net/images/d6888b14657072420f87eb3b2c79f8ec.jpg",
+    "price": { "amount": 4.3, "currency": "EUR", "unit": "pack" },
+    "format": {
+      "description": "6 latas x 60g",
+      "totalWeight": 360
+    }
+  },
+  {
+    "id": 102,
+    "name": "Atún claro en aceite de oliva",
+    "category_id": [2000],
+    "parent": 101,
+    "photo": "https://prod-mercadona.imgix.net/images/f99f0a2b9e478cee5b0e02fac62d4686.jpg",
+    "price": { "amount": 4.9, "currency": "EUR", "unit": "pack" },
+    "format": {
+      "description": "6 latas x 60g",
+      "totalWeight": 360
+    }
+  },
+  {
+    "id": 1,
+    "name": "Fiambre magro sándwich",
+    "category_id": [1000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/f820e38645791ddc42c14ef60ffad790.jpg",
+    "price": { "amount": 1.85, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Paquete 300g",
+      "totalWeight": 300
+    }
+  },
+  {
+    "id": 103,
+    "name": "Atún claro en aceite de oliva (bote)",
+    "category_id": [2000],
+    "parent": 102,
+    "photo": "https://prod-mercadona.imgix.net/images/666079e35f5efa5f551aba0c2136ea8e.jpg",
+    "price": { "amount": 3.7, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Bote 195g (140g escurrido)",
+      "totalWeight": 195
+    }
+  },
+  {
+    "id": 104,
+    "name": "Ventresca de atún claro",
+    "category_id": [2000],
+    "parent": 103,
+    "photo": "https://prod-mercadona.imgix.net/images/5610e6403d50026b3d4ded454fc74dd7.jpg",
+    "price": { "amount": 3.3, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Lata 111g (78g escurrido)",
+      "totalWeight": 111
+    }
+  },
+  {
+    "id": 705,
+    "name": "Leche semidesnatada Hacendado mini",
+    "category_id": [3000],
+    "parent": 805,
+    "photo": "https://prod-mercadona.imgix.net/images/f16c6d550a0a4236222a7dfdea3017ca.jpg",
+    "price": { "amount": 1.59, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "6 mini bricks x 200ml",
+      "totalWeight": 1200
+    }
+  },
+  {
+    "id": 200,
+    "name": "Filetes de caballa bajo contenido en sal",
+    "category_id": [2000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/eb64d4644cf25f2ef0b678ce9716a9fd.jpg",
+    "price": { "amount": 2.5, "currency": "EUR", "unit": "pack" },
+    "format": {
+      "description": "2 latas x 65g",
+      "totalWeight": 130
+    }
+  },
+  {
+    "id": 201,
+    "name": "Filetes de caballa en tomate",
+    "category_id": [2000],
+    "parent": 200,
+    "photo": "https://prod-mercadona.imgix.net/images/d5da719383ca0fb385ca259befd01d02.jpg",
+    "price": { "amount": 1.8, "currency": "EUR", "unit": "pack" },
+    "format": {
+      "description": "2 latas x 65g",
+      "totalWeight": 130
+    }
+  },
+  {
+    "id": 202,
+    "name": "Filetes de caballa en aceite de oliva",
+    "category_id": [2000],
+    "parent": 201,
+    "photo": "https://prod-mercadona.imgix.net/images/f089d18218eb3b781f1511babe3c6256.jpg",
+    "price": { "amount": 2.1, "currency": "EUR", "unit": "pack" },
+    "format": {
+      "description": "2 latas x 65g",
+      "totalWeight": 130
+    }
+  },
+  {
+    "id": 300,
+    "name": "Leche desnatada Hacendado",
+    "category_id": [3000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/d1df90671044f2bfe464b666ef0cb142.jpg",
+    "price": { "amount": 0.84, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Brick 1L",
+      "totalWeight": 1000
+    }
+  },
+  {
+    "id": 301,
+    "name": "Leche entera Hacendado",
+    "category_id": [3000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/eec7e3c9694398905eb7cade2c0bedbc.jpg",
+    "price": { "amount": 0.97, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Brick 1L",
+      "totalWeight": 1000
+    }
+  },
+  {
+    "id": 302,
+    "name": "Batido sabor fresa Hacendado",
+    "category_id": [3000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/26afc175f1198a7e222963bbc727fd96.jpg",
+    "price": { "amount": 1.2, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Botella 1L",
+      "totalWeight": 1000
+    }
+  },
+  {
+    "id": 900,
+    "name": "Leche semidesnatada Hacendado",
+    "category_id": [3000],
+    "parent": null,
+    "photo": "https://prod-mercadona.imgix.net/images/b869141b9d9c9810546bb229d73ecb77.jpg",
+    "price": { "amount": 0.88, "currency": "EUR", "unit": "ud" },
+    "format": {
+      "description": "Brick 1L",
+      "totalWeight": 1000
+    }
+  }
+]
