@@ -7,7 +7,7 @@ import { CatalogTransformService } from './catalog-transform.service';
 
 @Injectable({ providedIn: 'root' })
 export class CatalogApiService {
-  private readonly url = 'assets/productos.json';
+    private readonly url = 'productos.json';
 
   constructor(
     private readonly http: HttpClient,

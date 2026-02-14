@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Colores */
+  --c-bg: #ffffff;
+  --c-border: #e6e6e6;
+  --c-text: #111827;
+  --c-muted: #6b7280;
+
+  /* Espaciado y forma */
+  --r-md: 12px;
+  --space-3: 12px;
+  --space-4: 16px;
+
+  /* Tipografía */
+  --fs-sm: 14px;
+  --fs-xs: 13px;
+  --fw-semibold: 600;
+}
