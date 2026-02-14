@@ -1,0 +1,29 @@
+.list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.card {
+  width: 100%;
+  text-align: left;
+  padding: var(--space-3);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-bg);
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: #cfcfcf;
+}
+
+.card.is-selected {
+  outline: 2px solid #111827;
+  outline-offset: 2px;
+}
+
+.name {
+  font-size: var(--fs-sm);
+  color: var(--c-text);
+  font-weight: var(--fw-semibold);
+}

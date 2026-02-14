@@ -2,8 +2,15 @@
   <div class="col left" aria-label="Columna izquierda">
     <h2 class="title">Categorías</h2>
 
-    <!-- Placeholder: en el siguiente paso pintamos categorías reales -->
-    <div class="placeholder">(Aquí irán las categorías)</div>
+    @if (categories$ | async; as categories) {
+      <app-category-list
+        [categories]="categories"
+        [selectedCategoryId]="selectedCategoryId()"
+        (selectCategory)="onSelectCategory($event)"
+      />
+    } @else {
+      <div class="placeholder">Cargando categorías...</div>
+    }
   </div>
 
   <div class="col right" aria-label="Columna derecha">

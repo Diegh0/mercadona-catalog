@@ -1,0 +1,12 @@
+<div class="list">
+  @for (c of categories; track c.id) {
+    <button
+      type="button"
+      class="card"
+      [class.is-selected]="c.id === selectedCategoryId"
+      (click)="selectCategory.emit(c.id)"
+    >
+      <span class="name">{{ c.name }}</span>
+    </button>
+  }
+</div>
