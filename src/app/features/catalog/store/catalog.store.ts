@@ -1,5 +1,6 @@
 import { Injectable, computed, effect, inject, signal } from '@angular/core';
 import { CatalogApiService } from '../../../core/services/catalog-api.service';
+import { CatalogPersistenceService } from '../../../core/services/catalog-persistence.service';
 import { CatalogCategory, CatalogProduct } from '../../../core/models/catalog.model';
 import { SortConfig } from '../../../core/models/sort-config.model';
 
@@ -12,6 +13,9 @@ export class CatalogStore {
   typeFilter: 'name',
   initialStatus: 'asc',
 });
+  private readonly persistence = inject(CatalogPersistenceService);
+  private readonly hydrated = signal(false);
+
 
   readonly sortStatus = signal<'asc' | 'desc'>(this.sortConfig().initialStatus);
   // Data
@@ -84,14 +88,60 @@ readonly rightProductsView = computed(() => {
       next: (cats) => {
         this.categories.set(cats);
         this.loading.set(false);
+        const saved = this.persistence.load();
+        if (saved) {
+          this.sortConfig.set(saved.sortConfig);
+          this.sortStatus.set(saved.sortStatus);
+
+          this.selectedCategoryId.set(saved.selectedCategoryId);
+
+          const rebuilt = this.rebuildProductPath(saved.productPathIds);
+          this.productPath.set(rebuilt);
+
+          this.searchTerm.set(saved.searchTerm ?? '');
+        }
+
+        this.hydrated.set(true);
+
       },
+      
       error: () => {
         this.categories.set([]);
         this.loading.set(false);
       },
     });
-   
+    
+   effect(() => {
+  if (!this.hydrated()) return;
+
+  this.persistence.save({
+    selectedCategoryId: this.selectedCategoryId(),
+    productPathIds: this.productPath().map((p) => p.id),
+    searchTerm: this.searchTerm(),
+    sortConfig: this.sortConfig(),
+    sortStatus: this.sortStatus(),
+  });
+});
+
+
+}
+private rebuildProductPath(ids: number[]) {
+  const cat = this.selectedCategory();
+  if (!cat || ids.length === 0) return [];
+
+  const result = [];
+  let currentLevel = cat.products;
+
+  for (const id of ids) {
+    const found = currentLevel.find((p) => p.id === id);
+    if (!found) break;
+    result.push(found);
+    currentLevel = found.children;
   }
+
+  return result;
+}
+
 
   selectCategory(id: number) {
   this.selectedCategoryId.set(id);
