@@ -1,59 +1,84 @@
-# MercadonaCatalog
+Catálogo Mercadona – Prueba Técnica
+Descripción
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Aplicación desarrollada con Angular 21 que implementa un catálogo jerárquico de productos siguiendo las especificaciones del PDF.
 
-## Development server
+Funcionalidades implementadas:
 
-To start a local development server, run:
+Layout de dos columnas con scroll independiente
 
-```bash
-ng serve
-```
+Navegación jerárquica de productos (n niveles)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Botón “Atrás”
 
-## Code scaffolding
+Buscador (mínimo 3 caracteres, solo columna derecha)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Ordenación configurable ASC/DESC
 
-```bash
-ng generate component component-name
-```
+Persistencia de estado tras refresh (selección, ordenación y scroll)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Diseño responsive
 
-```bash
-ng generate --help
-```
+Tests unitarios y de comportamiento
 
-## Building
+Cobertura de tests: > 80%
 
-To build the project run:
+Stack técnico
 
-```bash
-ng build
-```
+Angular 21 (Standalone Components)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Angular Signals para gestión de estado
 
-## Running unit tests
+SCSS
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Vitest (testing + coverage)
 
-```bash
-ng test
-```
+Arquitectura
 
-## Running end-to-end tests
+Estructura basada en features:
 
-For end-to-end (e2e) testing, run:
+core/ (modelos y servicios)
+features/catalog/ (store + componentes)
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Patrón Smart/Dumb Components
 
-## Additional Resources
+Store local con Signals
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Servicio de transformación para desacoplar el JSON del modelo de dominio
+
+Persistencia en localStorage
+
+Instalación y ejecución
+
+Requiere Node 20.19+
+
+Instalar dependencias:
+
+npm install
+
+
+Ejecutar aplicación:
+
+npm start
+
+
+Ejecutar tests:
+
+npm test
+
+
+Ejecutar tests con cobertura:
+
+npm test -- --coverage
+
+
+Build producción:
+
+npm run build
+
+Notas
+
+El JSON se sirve desde assets mediante HttpClient.
+
+La solución prioriza claridad arquitectónica, separación de responsabilidades y mantenibilidad.
