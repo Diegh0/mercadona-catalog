@@ -1,10 +1,18 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EnvironmentInjector,
+  ViewChild,
+  effect,
+  inject,
+  runInInjectionContext,
+  signal, } from '@angular/core';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CatalogStore } from './store/catalog.store';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { SortConfig } from '../../core/models/sort-config.model';
-import { AfterViewInit, ElementRef, ViewChild, effect } from '@angular/core';
 
 @Component({
   selector: 'app-catalog-page',
@@ -19,6 +27,7 @@ export class CatalogPageComponent {
 
   @ViewChild('leftCol') leftCol?: ElementRef<HTMLElement>;
   @ViewChild('rightCol') rightCol?: ElementRef<HTMLElement>;
+  private readonly envInjector = inject(EnvironmentInjector);
 
   readonly mobileTab = signal<'left' | 'right'>('left');
 
@@ -57,10 +66,10 @@ constructor() {
     this.store.toggleSortStatus();
   }
 ngAfterViewInit(): void {
+  runInInjectionContext(this.envInjector, () => {
     effect(() => {
       if (!this.store.isHydrated()) return;
 
-      // Restauramos scroll cuando ya hay datos + estado restaurado
       queueMicrotask(() => {
         const left = this.leftCol?.nativeElement;
         const right = this.rightCol?.nativeElement;
@@ -69,5 +78,7 @@ ngAfterViewInit(): void {
         if (right) right.scrollTop = this.store.rightScrollTop();
       });
     });
-  }
+  });
+}
+
 }
